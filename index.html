@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Meus gastos</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="header">
+      <h1>Meu saldo de <span id="month"></span></h1>
+    </div>
+
+    <div class="indicators">
+      <div class="indicator">
+        <h4>Entradas</h4>
+        <p>R$ <span id="total-earnings"></span></p>
+      </div>
+      <div class="indicator">
+        <h4>Saídas</h4>
+        <p>R$ <span id="total-expenses"></span></p>
+      </div>
+      <div class="indicator">
+        <h4>Saldo</h4>
+        <p>R$ <span id="final-balance"></span></p>
+      </div>
+    </div>
+
+    <div class="boxes">
+      <div class="earnings box">
+        <h3>Minha receita</h3>
+        <ul class="list" id="id_ul_receita">
+        </ul>
+      </div>
+
+      <div class="expenses box">
+        <h3>Meus gastos</h3>
+        <ul class="list" id="id_ul_despesa">
+        </ul>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
