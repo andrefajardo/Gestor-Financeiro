@@ -1,4 +1,4 @@
-var mesAtual = 'janeiro';
+var mesAtual = "janeiro";
 var receita = 0;
 var despesa = 0;
 var saldo = 0;
@@ -6,8 +6,6 @@ var o_entrada = {};
 var a_entradas = [];
 var o_saida = {};
 var a_saidas = [];
-
-
 
 // var a_entradas = [{ description: `Salário`, value: `4000.00` }];
 // var a_saidas = [{ description: `Alimentação`, value: `800.00` }];
@@ -25,7 +23,6 @@ var a_saidas = [];
 
 // Objeto recebendo valores do prompt e passando para o array
 
-
 var controle = true;
 while (controle) {
   a_entradas.push(
@@ -37,11 +34,9 @@ while (controle) {
   var controle = window.confirm(`Gostaria de inserir outra receita?`);
 }
 
-
 for (const indice in a_entradas) {
-  receita = receita + Number((a_entradas[indice].value));
+  receita = receita + Number(a_entradas[indice].value);
 }
-
 
 var controle = true;
 while (controle) {
@@ -54,13 +49,11 @@ while (controle) {
   var controle = window.confirm(`Gostaria de inserir outra Despesa?`);
 }
 
-
 for (const indice in a_saidas) {
-  despesa = despesa + Number((a_saidas[indice].value));
+  despesa = despesa + Number(a_saidas[indice].value);
 }
 
 saldo = receita - despesa;
-
 
 // var totalG = gasto1 + gasto2 + gasto3;
 // var media = gasto1/3;
@@ -79,32 +72,46 @@ var despesas = {
 };*/
 
 // Mês
-document.getElementById('month').innerHTML = mesAtual;
+document.getElementById("month").innerHTML = mesAtual;
 
 // Entradas
-document.getElementById('total-earnings').innerHTML = receita;
+document.getElementById("total-earnings").innerHTML = receita;
 
 // Saídas
-document.getElementById('total-expenses').innerHTML = despesa;
+document.getElementById("total-expenses").innerHTML = despesa;
 
 // Saldo
-document.getElementById('final-balance').innerHTML = saldo;
+document.getElementById("final-balance").innerHTML = saldo;
 
 // Minha receita: Salário
 var lista_r = window.document.getElementById(`id_ul_receita`);
-for (const i in a_entradas) {
-  var item_e = window.document.createElement(`li`)
-  item_e.innerHTML =  `${a_entradas[i].description} : R$ ${a_entradas[i].value}`
-  lista_r.appendChild(item_e);
-  // document.getElementById('salary').innerHTML += `${a_entradas[i].description} : R$ ${a_entradas[i].value}`;
-}
+var lista_d = window.document.querySelector(`#id_ul_despesa`);
 
+/*
+for (const i in a_entradas) {
+  var item_e = window.document.createElement(`li`);
+  item_e.innerHTML = `${a_entradas[i].description} : R$ ${a_entradas[i].value}`;
+  lista_r.appendChild(item_e);
+}
+// document.getElementById('salary').innerHTML += `${a_entradas[i].description} : R$ ${a_entradas[i].value}`;
 
 // Meus gastos: Alimentação
-var lista_d = window.document.querySelector(`#id_ul_despesa`);
+
 for (const c in a_saidas) {
   var item_d = window.document.createElement(`li`);
-  item_d.innerHTML = `${a_saidas[c].description} : R$ ${a_saidas[c].value}`
-  lista_d.appendChild(item_d)
+  item_d.innerHTML = `${a_saidas[c].description} : R$ ${a_saidas[c].value}`;
+  lista_d.appendChild(item_d);
 }
 // document.getElementById('food').innerHTML = `${a_saidas[0].description} : R$ ${a_saidas[0].value}`;
+*/
+
+function listar_all(array, local) {
+  for (const c in array) {
+    var item_d = window.document.createElement(`li`);
+    item_d.innerHTML = `${array[c].description} : R$ ${array[c].value}`;
+    local.appendChild(item_d);
+  }
+}
+
+listar_all(a_entradas, lista_r)
+listar_all(a_saidas, lista_d)
